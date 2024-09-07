@@ -17,8 +17,8 @@ This project implements the Discrete Fourier Transform (DFT) and the Inverse Dis
 - Python 3.6 or higher
 - Python Libraries:
   - `numpy`
-  - `matplotlib` (optional, for visualization)
-  - `scipy` (optional, for additional FFT functions)
+  - `matplotlib` (for graph visualization)
+
 
 ### Project Structure
 
@@ -72,8 +72,7 @@ Este projeto implementa a Transformada Discreta de Fourier (DFT) e a Transformad
 - Python 3.6 ou superior
 - Bibliotecas Python:
   - `numpy`
-  - `matplotlib` (opcional, para visualização)
-  - `scipy` (opcional, para funções adicionais de FFT)
+  - `matplotlib` (para visualização gráfica)
 
 ### Estrutura do Projeto
 
