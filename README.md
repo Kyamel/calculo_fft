@@ -1,25 +1,35 @@
-# Projeto de Transformada Discreta de Fourier (DFT) e Transformada Discreta de Fourier Inversa (IDFT)
+# DFT and IDFT Calculation Project
 
-Este projeto implementa a Transformada Discreta de Fourier (DFT) e a Transformada Discreta de Fourier Inversa (IDFT) para análise de sinais amostrados. O objetivo é fornecer uma aplicação simples que carrega sinais amostrados de um arquivo de texto e realiza operações de DFT e IDFT.
+## Language Selection
 
-## Requisitos
+Please select your language:
+- [English](#dft-and-idft-calculation-project)
+- [Português](#projeto-de-transformada-discreta-de-fourier-dft-e-transformada-discreta-de-fourier-inversa-idft)
 
-- Python 3.6 ou superior
-- Bibliotecas Python:
+---
+
+## DFT and IDFT Calculation Project
+
+This project implements the Discrete Fourier Transform (DFT) and the Inverse Discrete Fourier Transform (IDFT) for sampled signal analysis. The goal is to provide a simple application that loads sampled signals from a text file and performs DFT and IDFT operations.
+
+### Requirements
+
+- Python 3.6 or higher
+- Python Libraries:
   - `numpy`
-  - `matplotlib` (opcional, para visualização)
-  - `scipy` (opcional, para funções adicionais de FFT)
+  - `matplotlib` (optional, for visualization)
+  - `scipy` (optional, for additional FFT functions)
 
-## Estrutura do Projeto
+### Project Structure
 
-- `src/cli.py`: Script principal para interação com o usuário.
-- `src/plotter.py`: Contém as funções para processamento e visualização dos sinais.
-- `data/`: Diretório onde os arquivos de dados (TXT) são armazenados.
-- `README.md`: Este arquivo.
+- `src/cli.py`: Main script for user interaction.
+- `src/plotter.py`: Contains functions for processing and visualizing signals.
+- `data/`: Directory where data files (TXT) are stored.
+- `README.md`: This file.
 
-## Formato do Arquivo de Dados
+### Data File Format
 
-Os arquivos de dados devem estar no seguinte formato:
+The data files should be in the following format:
 - name
 - sample frequency
 - sample_1
@@ -28,21 +38,84 @@ Os arquivos de dados devem estar no seguinte formato:
 - sample_4
 - ...
 
-## Como Executar
+### How to Run
+
+1. **Clone the Repository**
+
+    ```sh
+    git clone https://github.com/kyamel/calculo_dft.git
+    cd calculo_dft
+    ```
+
+2. **Set Up Environment**
+
+    ```sh
+    python -m venv venv
+    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+    pip install numpy matplotlib
+    ```
+
+3. **Run**
+
+    ```sh
+    python src/cli.py signal.txt
+    ```
+
+---
+
+## Projeto de Transformada Discreta de Fourier (DFT) e Transformada Discreta de Fourier Inversa (IDFT)
+
+Este projeto implementa a Transformada Discreta de Fourier (DFT) e a Transformada Discreta de Fourier Inversa (IDFT) para análise de sinais amostrados. O objetivo é fornecer uma aplicação simples que carrega sinais amostrados de um arquivo de texto e realiza operações de DFT e IDFT.
+
+### Requisitos
+
+- Python 3.6 ou superior
+- Bibliotecas Python:
+  - `numpy`
+  - `matplotlib` (opcional, para visualização)
+  - `scipy` (opcional, para funções adicionais de FFT)
+
+### Estrutura do Projeto
+
+- `src/cli.py`: Script principal para interação com o usuário.
+- `src/plotter.py`: Contém as funções para processamento e visualização dos sinais.
+- `data/`: Diretório onde os arquivos de dados (TXT) são armazenados.
+- `README.md`: Este arquivo.
+
+### Formato do Arquivo de Dados
+
+Os arquivos de dados devem estar no seguinte formato:
+- nome
+- frequência de amostragem
+- amostra_1
+- amostra_2
+- amostra_3
+- amostra_4
+- ...
+
+### Como Executar
 
 1. **Clone o Repositório**
 
     ```sh
     git clone https://github.com/kyamel/calculo_dft.git
     cd calculo_dft
+    ```
 
-2.  **Configurar ambiente**
+2. **Configurar ambiente**
 
     ```sh
     python -m venv venv
     source venv/bin/activate  # No Windows, use `venv\Scripts\activate`
     pip install numpy matplotlib
+    ```
 
 3. **Executar**
+
     ```sh
-    python src/cli.py signat.txt
+    python src/cli.py signal.txt
+    ```
+
+---
+
+**Note:** To switch between languages, simply scroll to the desired section above.
