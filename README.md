@@ -20,13 +20,13 @@ Este projeto implementa a Transformada Discreta de Fourier (DFT) e a Transformad
 ## Formato do Arquivo de Dados
 
 Os arquivos de dados devem estar no seguinte formato:
-name
-sample frequency
-sample_1
-sample_2
-sample_3
-sample_4
-...
+- name
+- sample frequency
+- sample_1
+- sample_2
+- sample_3
+- sample_4
+- ...
 
 ## Como Executar
 
