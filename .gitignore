@@ -1,5 +1,12 @@
-dist/*
-build/*
-venv/*
+# Ignore python comoom directorys
+__pycache__/
+*.py[cod]
+
+# Ignore virtual environments
+venv/
+dist/
+build/
+
+# Others
 dftAlgorithmNoBuild/*
 dftAlgorith/*
