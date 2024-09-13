@@ -73,11 +73,8 @@ class Plotter:
         self.signal_on_freq_domain = dft(self.sampled_signal, self.N, log)
         self.normalized_signal = normalizer(self.signal_on_freq_domain[0], self.signal_on_freq_domain[1], self.N)
 
-        self.magnitudes = np.sqrt(np.array(self.signal_on_freq_domain[0])**2 + np.array(self.signal_on_freq_domain[1])**2)
-        self.normalized_magnitudes = np.sqrt(np.array(self.normalized_signal[0])**2 + np.array(self.normalized_signal[1])**2)
+        self.update()
 
-        self.faze = np.arctan2(self.normalized_signal[1], self.normalized_signal[0]) + np.pi / 2
-        self.faze = np.where(abs(self.normalized_signal[0]) > 1e-4, self.faze, 0)
 
     def _idft(self, log: bool = False) -> None:
         real_part = self.normalized_signal[0]
@@ -167,11 +164,14 @@ class Plotter:
         self.magnitudes = np.sqrt(self.signal_on_freq_domain[0]**2 + self.signal_on_freq_domain[1]**2)
         self.normalized_magnitudes = np.sqrt(self.normalized_signal[0]**2 + self.normalized_signal[1]**2)
 
-        # Atualizar fases
-        self.faze = np.arctan2(self.normalized_signal[1], self.normalized_signal[0]) + np.pi / 2
-        self.faze = np.where(np.abs(self.normalized_signal[0]) > 1e-4, self.faze, 0)
+        real, imag = self.normalized_signal
+        # Fases
+        self.phase = np.arctan2(imag, real) - np.pi/2
+        self.phase = np.where(self.phase < 0, self.phase + 2 * np.pi, self.phase)
+        for i in range(len(real)):
+            if np.abs(real[i]) < 1e-4 and np.abs(imag[i]) < 1e-4:
+                self.phase[i] = 0  # Caso trivial onde ambas as partes são próximas de zero
 
-        # Atualizar sinal reconstruído
         self._idft()
 
     def plot(self) -> None:
@@ -190,17 +190,19 @@ class Plotter:
         plt.xlabel('Frequência (Hz)')
         plt.ylabel('Magnitude')
         plt.title('Magnitude Normalizada pela Frequência (DFT)')
+        plt.xticks(self.normalized_frequencies, rotation=45, ha='right')
         plt.grid(True)
 
         plt.subplot(2, 2, 3)
-        plt.stem(self.normalized_frequencies, self.faze * 180 / np.pi , basefmt=" ")
+        plt.stem(self.normalized_frequencies, self.phase * 180 / np.pi , basefmt=" ")
         plt.xlabel('Frequência (Hz)')
         plt.ylabel('Ãngulo (graus)')
         plt.title('Fase pela Frequência (DFT)')
+        plt.xticks(self.normalized_frequencies, rotation=45, ha='right')
         plt.grid(True)
 
         plt.subplot(2, 2, 4)
-        plt.plot(self.time, self.signal_reconstructed)
+        plt.plot(self.time, self.signal_reconstructed, marker='o')
         plt.xlabel('Tempo (s)')
         plt.ylabel('Função Reconstruída')
         plt.title('Função Reconstruída (IDFT) - Linhas')

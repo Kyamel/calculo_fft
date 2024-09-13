@@ -74,7 +74,7 @@ def main():
             elif action == 'fr':
                 print(f"{'Freq (Hz)':<20} {'Mag':<20} {'Faze (°)':<20}")
                 print("-" * 50)
-                for freq, magnitude, fase in zip(plotter.normalized_frequencies, plotter.normalized_magnitudes, plotter.faze):
+                for freq, magnitude, fase in zip(plotter.normalized_frequencies, plotter.normalized_magnitudes, plotter.phase):
                     if magnitude > 1e-4:
                         print(f"{freq:<20.2f} {magnitude:<20.2f} {fase:<20.2f}")
                 
@@ -90,7 +90,7 @@ def main():
             elif action == 'fs':
                 print(f"{'Freq (Hz)':<20} {'Mag':<20} {'Faze (°)':<20}")
                 print("-" * 50)
-                for freq, magnitude, fase in zip(plotter.normalized_frequencies, plotter.normalized_magnitudes, plotter.faze):
+                for freq, magnitude, fase in zip(plotter.normalized_frequencies, plotter.normalized_magnitudes, plotter.phase):
                     if magnitude > 1e-4:
                         print(f"{freq:<20.2f} {magnitude:<20.2f} {fase:<20.2f}")
 
@@ -110,7 +110,7 @@ def main():
             elif action == 'fa':
                 print(f"{'Freq (Hz)':<20} {'Mag':<20} {'Faze (°)':<20}")
                 print("-" * 50)
-                for freq, magnitude, fase in zip(plotter.normalized_frequencies, plotter.normalized_magnitudes, plotter.faze):
+                for freq, magnitude, fase in zip(plotter.normalized_frequencies, plotter.normalized_magnitudes, plotter.phase):
                     if magnitude < 1e-4:
                         print(f"{freq:<20.2f} {magnitude:<20.2f} {fase:<20.2f}")
 
